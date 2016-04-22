@@ -1,0 +1,22 @@
+---
+- name: Ensure PHPMyAdmin is installed.
+  apt: name=phpmyadmin state=installed
+  notify: restart apache
+
+- name: Place configuration file in place.
+  template:
+    src: config-db.j2
+    dest: "/etc/phpmyadmin/config-db.php"
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart apache
+
+- name: Ensure PHPMyAdmin config file is included in Apache config.
+  lineinfile:
+    dest: /etc/apache2/apache2.conf
+    state: present
+    regexp: "^Include.+phpmyadmin.+$"
+    line: "Include /etc/phpmyadmin/apache.conf"
+    insertafter: "EOF"
+  notify: restart apache

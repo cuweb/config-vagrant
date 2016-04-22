@@ -1,0 +1,14 @@
+---
+- name: Remove default index.html
+  sudo: true
+  shell: "rm /var/www/html/index.html"
+
+- name: Place new html file in place.
+  template:
+    src: index.html
+    dest: "/var/www/html/index.html"
+
+- name: Place new html file in place.
+  template:
+    src: phpinfo.php
+    dest: "/var/www/html/phpinfo.php"

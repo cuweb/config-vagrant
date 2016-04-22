@@ -1,0 +1,8 @@
+---
+  - name: install apache2
+    apt: name=apache2 update_cache=yes state=latest
+
+  - name: Enable mod_rewrite
+    sudo: true
+    shell: a2enmod rewrite
+    notify: restart apache

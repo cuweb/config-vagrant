@@ -1,0 +1,27 @@
+---
+- name: Install PHP v5.6 for WP-CLI support
+  apt: name={{ item }}
+  with_items:
+  - php5
+  - php5-common
+  - php5-mysqlnd
+  - php5-mcrypt
+  - php5-curl
+  - php5-cli
+  - php-pear
+  - mcrypt
+  - php5-mcrypt
+  - php5-ldap
+  - libapache2-mod-php5
+
+- name: Mod Mcrypt
+  shell: php5enmod mcrypt
+
+- name: Place PHP configuration file in place.
+  template:
+    src: php.ini.j2
+    dest: "/etc/php5/apache2/php.ini"
+    owner: root
+    group: root
+    mode: 0644
+  notify: restart apache

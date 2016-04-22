@@ -1,0 +1,14 @@
+---
+- name: Get Unzip
+  apt: name=unzip state=installed
+
+- name: PHP | Download webgrind package
+  get_url: url=https://github.com/jokkedk/webgrind/archive/master.zip dest=/tmp/webgrind.zip
+
+- stat: path=/var/www/html/webgrind-master/config.php
+  register: optional_file
+
+- name: PHP | Move the webgrind package contents to the webgrind dir
+  shell: unzip /tmp/webgrind.zip -d /var/www/html/
+  when: optional_file.stat.exists == false
+  notify: restart apache

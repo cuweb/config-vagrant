@@ -1,0 +1,37 @@
+---
+- name: Create a VirtualHost file for each enabled VirtualHost
+  template:
+    src=site_vhost.j2
+    dest=/etc/apache2/sites-available/{{ item.documentrootdir }}.conf
+    owner=root
+    group=root
+    mode=0644
+  with_items: apache_vhosts_enabled
+  notify:
+    - restart apache
+
+- name: Create web directories for each enabled VirtualHost
+  file:
+    path=/var/www/{{ item.documentrootdir }}
+    state=directory
+    owner=vagrant
+    group=vagrant
+    mode=0755
+  with_items: apache_vhosts_enabled
+
+- name: Enable Sites
+  shell: a2ensite {{ item.documentrootdir }}.conf
+  with_items: apache_vhosts_enabled
+  notify:
+    - restart apache
+
+- name: Setup MySQL user for WordPress
+  mysql_user: name=wordpress password=wordpress priv=*.*:ALL state=present
+
+- name: Setup empty databases for WordPress
+  mysql_db:
+    name: "{{ item.dbname }}"
+    encoding: "utf8"
+    collation: "utf8_unicode_ci"
+    state: "present"
+  with_items: apache_vhosts_enabled

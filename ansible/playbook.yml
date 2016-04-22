@@ -1,0 +1,29 @@
+---
+- hosts: all
+  sudo: true
+
+  vars:
+    apache_vhosts_enabled:
+      - servername: "ccms-local.carleton.ca"
+        documentrootdir: "ccms-local"
+        dbname: "ccms-local"
+        errorlog: "ccms-local"
+        customlog: "ccms-local"
+      - servername: "framework-local.carleton.ca"
+        documentrootdir: "framework-local"
+        dbname: "framework-local"
+        errorlog: "framework-local"
+        customlog: "framework-local"
+      - servername: "kb-local.carleton.ca"
+        documentrootdir: "kb-local"
+        dbname: "kb-local"
+        errorlog: "kb-local"
+        customlog: "kb-local"
+      - servername: "intranet-local.carleton.ca"
+        documentrootdir: "intranet-local"
+        dbname: "intranet-local"
+        errorlog: "intranet-local"
+        customlog: "intranet-local"
+
+  roles:
+   - temp-page
