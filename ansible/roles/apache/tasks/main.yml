@@ -6,3 +6,8 @@
     sudo: true
     shell: a2enmod rewrite
     notify: restart apache
+
+  - name: Enable SSL
+    sudo: true
+    shell: sudo a2enmod ssl
+    notify: restart apache
