@@ -13,7 +13,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       config.hostmanager.ignore_private_ip = false
       config.hostmanager.include_offline = true
       config.vm.define 'dev-box' do |node|
-        node.hostmanager.aliases = %w(ccms-local.carleton.ca, framework-local.carleton.ca, kb-local.carleton.ca, intranet.carleton.ca)
+        node.hostmanager.aliases = %w(ccms-local.carleton.ca, framework-local.carleton.ca, fw-local.carleton.ca, kb-local.carleton.ca, intranet.carleton.ca)
       end
     else
          puts 'vagrant-hostsupdater missing, please install the plugin:'
