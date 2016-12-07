@@ -4,6 +4,11 @@
 
   vars:
     apache_vhosts_enabled:
+      - servername: "cu-local.carleton.ca"
+        documentrootdir: "cu-local"
+        dbname: "cu-local"
+        errorlog: "cu-local"
+        customlog: "cu-local"
       - servername: "ccms-local.carleton.ca"
         documentrootdir: "ccms-local"
         dbname: "ccms-local"
@@ -14,16 +19,6 @@
         dbname: "framework-local"
         errorlog: "framework-local"
         customlog: "framework-local"
-      - servername: "fw-local.carleton.ca"
-        documentrootdir: "fw-local"
-        dbname: "fw-local"
-        errorlog: "fw-local"
-        customlog: "fw-local"
-      - servername: "kb-local.carleton.ca"
-        documentrootdir: "kb-local"
-        dbname: "kb-local"
-        errorlog: "kb-local"
-        customlog: "kb-local"
       - servername: "intranet-local.carleton.ca"
         documentrootdir: "intranet-local"
         dbname: "intranet-local"
