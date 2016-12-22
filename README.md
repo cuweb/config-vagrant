@@ -1,7 +1,7 @@
 # Vagrant Local Development Environment
 * Docs available at https://github.com/cuweb/docs-developer/wiki/Ansible---Vagrant
 
-Before you run the `vagrant up`, go to `ansible/roles/vhost-db/templates/site_vhost.j2` and remove this from the bottom. Once the vagrant up process has been completed, undo the changes
+Before you run the `vagrant up`, go to `/ansible/roles/vhost-db/templates/site_vhost.j2` and remove this from the bottom. Once the vagrant up process has been completed, undo the changes
 
 ```
 <VirtualHost *:443>
