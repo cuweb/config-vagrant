@@ -2,8 +2,8 @@
 sites
 .vagrant
 
-Vagrantfile
-ansible/playbook.yml
+# Vagrantfile
+# ansible/playbook.yml
 
 # PHPStorm
 .idea
