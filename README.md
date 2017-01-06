@@ -1,11 +1,11 @@
 # Vagrant Local Development Environment
 * Docs available at https://github.com/cuweb/docs-developer/wiki/Ansible---Vagrant
 
-
-
 # Before you run the `vagrant up`, do this in terminal:
 * `vagrant plugin install vagrant-hostmanager`
-* go to `/ansible/roles/vhost-db/templates/site_vhost.j2` and remove this from the bottom. Once the vagrant up process has been completed, undo the changes
+
+# Temporarily remove
+* go to `/ansible/roles/vhost-db/templates/site_vhost.j2` and remove the following. Once the vagrant up process has been completed, undo the changes
 
 ```
 <VirtualHost *:443>
@@ -27,6 +27,15 @@
         allow from all
     </Directory>
 </VirtualHost>
+```
+
+* go to `/ansible/roles/apache/tasks/main.yml` and remove the following. Once the vagrant up process has been completed, undo the changes
+
+```
+- name: Enable SSL
+  sudo: true
+  shell: sudo a2enmod ssl
+  notify: restart apache
 ```
 
 # For SSL
