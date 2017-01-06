@@ -81,8 +81,9 @@ openssl req -new -key server.key -out server.csr
 openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
 sudo cp server.crt /etc/ssl/certs
 sudo cp server.key /etc/ssl/private
-vagrant provision
 ```
+* Exit SSH and run `vagrant provision`
+
 # Additional Information
 
 ## Adding New Hosts
