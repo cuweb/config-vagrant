@@ -18,7 +18,7 @@ vagrant plugin install vagrant-hostmanager
 * Open `playbook.yml` and add new hosts using the following example:
 
 ```
-* servername: "cu-local.carleton.ca"
+- servername: "cu-local.carleton.ca"
   documentrootdir: "cu-local"
   dbname: "cu-local"
   errorlog: "cu-local"
@@ -57,7 +57,7 @@ The following items are used to enable SSL on the vagrant box, but should be tem
 * go to `/ansible/roles/apache/tasks/main.yml` and remove the following. Once the vagrant up process has been completed, undo the changes
 
 ```
-* name: Enable SSL
+- name: Enable SSL
   sudo: true
   shell: sudo a2enmod ssl
   notify: restart apache
