@@ -1,5 +1,5 @@
 # Vagrant Local Development Environment
-* Docs available at https://github.com/cuweb/docs-developer/wiki/Ansible---Vagrant
+* Docs for dev tool installation available at https://github.com/cuweb/docs-developer/wiki/Mac-Dev-Tool-Setup
 
 # Main Setup
 
@@ -92,7 +92,7 @@ vagrant provision
 * Once the machine boots, provision with `vagrant provision`
 
 ## URLs and Passwords
-* phpMyAdmin is at: `192.168.33.33/phpMyAdmin`
+* phpMyAdmin is at: 192.168.33.33/phpMyAdmin
 * SSH user is `vagrant` and password is `vagrant`
 * MySQL user is `wordpress` and password is `wordpress`
 * Web path on the server is `/var/wwww/` and is mapped to the `sites` folder locally (will be created on startup)
