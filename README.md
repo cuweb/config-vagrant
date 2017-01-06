@@ -68,7 +68,8 @@ The following items are used to enable SSL on the vagrant box, but should be tem
 
 # Setup SSL in your Vagrant
 Run each of the following items in terminal
-* **Note:** Do not forget to revert back the `/ansible/roles/vhost-db/templates/site_vhost.j2`, and `/ansible/roles/apache/tasks/main.yml` files before moving onto the SSL setup
+* Do not forget to revert back the `/ansible/roles/vhost-db/templates/site_vhost.j2`, and `/ansible/roles/apache/tasks/main.yml` files before moving onto the SSL setup
+* Password for `su` is `vagrant`
 ```
 vagrant ssh
 su
