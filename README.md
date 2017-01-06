@@ -73,7 +73,6 @@ Run each of the following items in terminal
 ```
 vagrant ssh
 su
-vagrant
 openssl genrsa -des3 -out server.key 2048
 openssl rsa -in server.key -out server.key.insecure
 mv server.key server.key.secure
