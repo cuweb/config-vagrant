@@ -1,0 +1,7 @@
+---
+- name: Generate DH Params (may take several minutes!)
+  command: openssl dhparam \
+    -out '{{ self_signed_ssl_dhparam }}' 
+    {{ self_signed_ssl_dh_size }} 
+  args:
+    creates: "{{ self_signed_ssl_dhparam }}"

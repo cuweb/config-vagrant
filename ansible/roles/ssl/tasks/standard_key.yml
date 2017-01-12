@@ -1,0 +1,7 @@
+---
+- name: Generate RSA Key
+  command: openssl genrsa \
+    -out '{{ self_signed_ssl_key }}' \
+    {{ self_signed_ssl_key_size }}
+  args:
+    creates: "{{ self_signed_ssl_key }}"

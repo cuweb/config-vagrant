@@ -1,0 +1,8 @@
+---
+- name: Generate ECC Key
+  command: openssl ecparam \
+    -genkey \
+    -name prime256v1 \
+    -out '{{ self_signed_ssl_key }}'
+  args:
+    creates: "{{ self_signed_ssl_key }}"

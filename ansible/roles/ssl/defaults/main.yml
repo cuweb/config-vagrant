@@ -1,0 +1,31 @@
+---
+self_signed_ssl_domain: "carleton.ca"
+
+self_signed_ssl_country: "CA"
+self_signed_ssl_state: "ON"
+self_signed_ssl_city: "Ottawa"
+self_signed_ssl_org: "Example Org"
+
+self_signed_ssl_dir: /etc/ssl/{{ self_signed_ssl_domain }}
+self_signed_ssl_dh_size: 2048
+self_signed_ssl_key_size: 2048
+self_signed_ssl_ecc: no
+
+# You probably will not need to change these
+self_signed_ssl_key_file: key.pem
+self_signed_ssl_csr_file: csr.pem
+self_signed_ssl_cert_file: cert.pem
+self_signed_ssl_dhparam_file: dhparam.pem
+
+# Public key lifetime in days; defaults to 5 years
+self_signed_ssl_cert_lifetime: 1825
+
+# Private
+self_signed_ssl_key: "{{ self_signed_ssl_dir }}/{{ self_signed_ssl_key_file }}"
+self_signed_ssl_csr: "{{ self_signed_ssl_dir }}/{{ self_signed_ssl_csr_file }}"
+self_signed_ssl_cert: "{{ self_signed_ssl_dir }}/{{ self_signed_ssl_cert_file }}"
+self_signed_ssl_dhparam: "{{ self_signed_ssl_dir }}/{{ self_signed_ssl_dhparam_file }}"
+
+self_signed_ssl_subject: "/C={{ self_signed_ssl_country }}/ST={{ self_signed_ssl_state }}/L={{ self_signed_ssl_city }}/O={{ self_signed_ssl_org }}/CN={{ self_signed_ssl_domain }}"
+
+

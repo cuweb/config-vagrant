@@ -1,0 +1,33 @@
+---
+- name: Create Key Directory
+  file:
+    state: directory
+    path: "{{ self_signed_ssl_dir }}"
+
+- include: ecc_key.yml
+  when: self_signed_ssl_ecc
+
+- include: standard_key.yml
+  when: not self_signed_ssl_ecc
+
+- name: Generate CSR
+  command: openssl req \
+    -new \
+    -subj '{{ self_signed_ssl_subject }}'
+    -key '{{ self_signed_ssl_key }}' \
+    -out '{{ self_signed_ssl_csr }}'
+  args:
+    creates: "{{ self_signed_ssl_csr }}"
+
+- name: Generate Self-signed Certificate
+  command: openssl req \
+    -x509 \
+    -days {{ self_signed_ssl_cert_lifetime }} \
+    -key '{{ self_signed_ssl_key }}' \
+    -in '{{ self_signed_ssl_csr }}' \
+    -out '{{ self_signed_ssl_cert }}'
+  args:
+    creates: '{{ self_signed_ssl_cert }}'
+
+- include: dhparam.yml
+  when: self_signed_ssl_dh_size >= 2048

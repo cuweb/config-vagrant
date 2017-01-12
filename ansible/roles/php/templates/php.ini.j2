@@ -225,3 +225,13 @@ soap.wsdl_cache_limit = 5
 ldap.max_links = -1
 
 extension=mcrypt.so
+
+extension = apc.so
+apc.enabled=1
+apc.shm_segments=1
+apc.shm_size=128M
+apc.ttl=3600
+apc.user_ttl=7200
+apc.gc_ttl=3600
+apc.max_file_size=1M
+apc.stat=1
