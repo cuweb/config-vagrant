@@ -16,15 +16,15 @@
 
 <VirtualHost *:443>
     SSLEngine on
-    SSLCertificateFile    /etc/ssl/certs/server.crt
-    SSLCertificateKeyFile /etc/ssl/private/server.key
+    SSLCertificateFile    /etc/ssl/carleton.ca/cert.pem
+    SSLCertificateKeyFile /etc/ssl/carleton.ca/key.pem
 
     ServerAdmin web@carleton.ca
     ServerName {{ item.servername }}
     ServerAlias {{ item.servername }}
     DocumentRoot /var/www/{{ item.documentrootdir }}
-    ErrorLog ${APACHE_LOG_DIR}/error.log
-    CustomLog ${APACHE_LOG_DIR}/access.log combined
+    ErrorLog ${APACHE_LOG_DIR}/secure/error.log
+    CustomLog ${APACHE_LOG_DIR}/secure/access.log combined
 
     <Directory /var/www/{{ item.documentrootdir }}>
         Options Indexes FollowSymLinks MultiViews

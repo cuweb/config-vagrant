@@ -1,7 +1,8 @@
 ---
 - name: Remove default index.html
-  sudo: true
-  shell: "rm /var/www/html/index.html"
+  file:
+      state: absent
+      path: /var/www/html/index.html
 
 - name: Place new html file in place.
   template:

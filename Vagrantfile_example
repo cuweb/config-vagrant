@@ -29,8 +29,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         v.customize [
             "modifyvm", :id,
             "--name", "dev-box",
-            "--memory", 512,
+            "--memory", 1024,
             "--natdnshostresolver1", "on",
+            "--natdnsproxy1", "on",
             "--cpus", 1,
         ]
     end
