@@ -23,8 +23,8 @@
     ServerName {{ item.servername }}
     ServerAlias {{ item.servername }}
     DocumentRoot /var/www/{{ item.documentrootdir }}
-    ErrorLog ${APACHE_LOG_DIR}/secure/error.log
-    CustomLog ${APACHE_LOG_DIR}/secure/access.log combined
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
 
     <Directory /var/www/{{ item.documentrootdir }}>
         Options Indexes FollowSymLinks MultiViews
