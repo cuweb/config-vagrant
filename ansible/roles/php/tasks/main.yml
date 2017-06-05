@@ -13,7 +13,6 @@
   - php5-mcrypt
   - php5-ldap
   - libapache2-mod-php5
-  - php-apc
 
 - name: Mod Mcrypt
   shell: php5enmod mcrypt
