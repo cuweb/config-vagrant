@@ -1,5 +1,5 @@
 # Vagrant Local Development Environment
-* Docs for dev tool installation available at https://github.com/cuweb/docs-developer/wiki/Mac-Dev-Tool-Setup
+* Docs for dev tool installation available at https://github.com/cuweb/docs-developer/wiki/Mac-Setup:-Dev-Tools
 
 # Main Setup
 
